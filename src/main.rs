@@ -10,6 +10,7 @@ USAGE:
 
 OPTIONS:
     -h, --help           Show this help message
+    -V, --version        Show version information
     -r, --replace <str>  Replacement string
     --windows            Enable Windows filename rules
     --no-windows         Disable Windows filename rules
@@ -36,6 +37,9 @@ fn main() -> Result<(), ::std::io::Error> {
             set_replacement = false;
         } else if arg == "-h" || arg == "--help" {
             print_usage();
+            return Ok(());
+        } else if arg == "-V" || arg == "--version" {
+            println!("sanitize-filename {}", env!("CARGO_PKG_VERSION"));
             return Ok(());
         } else if arg == "-r" || arg == "--replace" {
             set_replacement = true;
