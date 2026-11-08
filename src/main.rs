@@ -159,7 +159,7 @@ fn main() -> io::Result<()> {
         writeln!(handle, "{output}")
     } else {
         let mut text = output;
-        text.push('\n');
+        text.to_mut().push('\n');
         let bytes = encoding.encode(&text)?;
         handle.write_all(&bytes)
     }
