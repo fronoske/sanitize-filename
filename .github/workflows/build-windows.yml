@@ -1,0 +1,32 @@
+name: Build Windows EXE
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Build release EXE
+        run: cargo build --release --locked
+
+      - name: Verify executable
+        shell: cmd
+        run: |
+          target\release\sanitize-filename.exe --help
+          target\release\sanitize-filename.exe --windows -r "_" "report:2026/11/07?.txt"
+
+      - name: Upload Windows EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: sanitize-filename-windows-x64
+          path: target/release/sanitize-filename.exe
+          if-no-files-found: error
+          retention-days: 30
