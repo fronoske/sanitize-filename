@@ -1,11 +1,11 @@
 [package]
-authors = ["Jacob Brown <kardeiz@gmail.com>"]
+authors = ["Jacob Brown <kardeiz@gmail.com>", "Tsuyoshi Arai <fronoske@gmail.com>"]
 name = "sanitize-filename"
-version = "0.8.0-beta"
+version = "0.8.0-beta-f"
 keywords = ["filename", "sanitizer"]
 license = "MIT"
 readme = "README.md"
 edition = "2021"
 rust-version = "1.80.0"
-repository = "https://github.com/kardeiz/sanitize-filename"
+repository = "https://github.com/fronoske/sanitize-filename"
 description = "A simple filename sanitizer, based on Node's sanitize-filename"
