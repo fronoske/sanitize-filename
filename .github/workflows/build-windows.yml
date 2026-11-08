@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Build release EXE
         run: cargo build --release
@@ -24,7 +24,7 @@ jobs:
           target\release\sanitize-filename.exe --windows -r "_" "report:2026/11/07?.txt"
 
       - name: Upload Windows EXE
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: sanitize-filename-windows-x64
           path: target/release/sanitize-filename.exe
